@@ -1,0 +1,76 @@
+heat_template_version: '2014-10-16'
+parameters:
+  flavor:
+    constraints:
+    - {custom_constraint: nova.flavor, description: Must be a flavor known to Nova}
+    default: m1.small
+    description: Flavor for the instances to be created
+    type: string
+  image:
+    constraints:
+    - {custom_constraint: glance.image, description: Must identify an image known
+        to Glance}
+    description: 'Name or ID of the image to use for the instances. You can get the
+      default from http://cloud.fedoraproject.org/fedora-20.x86_64.qcow2 There is
+      also http://cloud.fedoraproject.org/fedora-20.i386.qcow2 Any image should work
+      since this template does not ask the VMs to do anything.
+
+      '
+    type: string
+  network: {default: 61bf7669-771a-474f-a8d7-ee9fc0aca95a, description: The network for the VM, type: string}
+resources:
+  asg:
+    properties:
+      desired_capacity: 2
+      max_size: 10
+      min_size: 1
+      resource:
+        properties:
+          flavor: {get_param: flavor}
+          image: {get_param: image}
+          networks:
+          - network: {get_param: network}
+        type: OS::Nova::Server
+    type: OS::Heat::AutoScalingGroup
+  cpu_alarm_high:
+    properties:
+      alarm_actions:
+      - get_attr: [scale_up_policy, alarm_url]
+      comparison_operator: gt
+      description: Scale-up if the average CPU > 50% for 1 minute
+      evaluation_periods: 1
+      matching_metadata:
+        metadata.user_metadata.stack: {get_param: 'OS::stack_id'}
+      meter_name: cpu_util
+      period: 90
+      statistic: avg
+      threshold: 20
+    type: OS::Ceilometer::Alarm
+  cpu_alarm_low:
+    properties:
+      alarm_actions:
+      - get_attr: [scale_down_policy, alarm_url]
+      comparison_operator: lt
+      description: Scale-down if the average CPU < 15% for 10 minutes
+      evaluation_periods: 1
+      matching_metadata:
+        metadata.user_metadata.stack: {get_param: 'OS::stack_id'}
+      meter_name: cpu_util
+      period: 90
+      statistic: avg
+      threshold: 10
+    type: OS::Ceilometer::Alarm
+  scale_down_policy:
+    properties:
+      adjustment_type: change_in_capacity
+      auto_scaling_group_id: {get_resource: asg}
+      cooldown: 60
+      scaling_adjustment: '-1'
+    type: OS::Heat::ScalingPolicy
+  scale_up_policy:
+    properties:
+      adjustment_type: change_in_capacity
+      auto_scaling_group_id: {get_resource: asg}
+      cooldown: 60
+      scaling_adjustment: 1
+    type: OS::Heat::ScalingPolicy

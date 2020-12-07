@@ -1,0 +1,111 @@
+{% load static %}
+ <html>
+        <head>
+            <title>Login</title>
+<link rel="shortcut icon" href="{% static "title.png" %}" alt="TCS"/>
+<style>
+.bod{
+/*background-image:url("https://png.pngtree.com/thumb_back/fw800/back_pic/04/07/55/275811e90413776.jpg");*/
+/*background-image:url("https://cdn.dribbble.com/users/3653942/screenshots/6982901/comp_10.gif");*/
+height: 100%;
+background-position: center;
+background-repeat:repeat-x;
+background-size: cover;
+opacity:1;
+background-size:cover;
+animation: animatebackground 25s linear infinite;
+}
+
+body,html
+{
+height:100%;
+margin:0;
+}
+img{
+width:250px;
+height:250px;
+padding-bottom: 5px;
+padding-top: 30px;
+padding-left: 590px;
+position: relative;
+top: 50%;
+size:250px;
+}
+
+h2{
+padding-bottom: 5px;
+padding-top: 110px;
+padding-right: 350px;
+position: relative;
+top: 50%;
+left:35%;
+color: #fff;
+
+}
+.content{
+position:absolute;
+left:50%;
+transform: translate(-50%,-50%);
+color:#fff;
+
+text-align:center;
+}
+
+input[type=text],input[type=password], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+p{
+color:red;
+}
+input[type=submit] {
+    width: 15%;
+    background-color: #4CAF50;
+    color: white;
+    right:-7%;
+    padding: 14px 20px;
+    position:relative;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+label{
+font-size:20px;
+display: inline-block;
+}
+                </style>
+        </head>
+        <body class="bod" background="{% static "background.jpg" %}" >
+
+    <div class="tit">
+<!--    <img src="https://cdn.freebiesupply.com/logos/large/2x/tata-consultancy-services-logo-black-and-white.png" alt="Paris"/>-->
+ <img src="{% static "tata.png" %}" alt="TCS"/>
+                <div class="logBox">
+
+      <div class="content">
+        <h2>NEUSTAR DASHBOARD</h2>
+                <form method="POST">
+                        {% csrf_token %}
+                        <label>Username</label>&nbsp;
+                        <input type="text" name="username" placeholder="Enter Username" required>
+                        <br>
+                        <label>Password</label>&nbsp;&nbsp;
+                        <input type="password" name="password" placeholder="Enter Password" required>
+                        <p>{{error}}</p>
+      <input type="submit" value="Login">
+                </form>
+    </div>
+                </div>
+    </div>
+        </body>
+</html>
+
+

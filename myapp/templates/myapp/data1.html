@@ -1,0 +1,156 @@
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/autofill/2.3.4/js/dataTables.autoFill.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#example').dataTable( {
+        scrollY: 400,
+        scrollX: true,
+        paging: false,
+        searching: true,
+        sortable: true
+        
+    } );
+} );
+</script>
+<style>
+.dataTables_wrapper .dataTables_filter {
+float: right;
+text-align: right;
+}
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  
+  width: 100%;
+}
+table thead tr th  {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+table tbody tr td  {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table tbody tr td {
+  padding: 8px;
+}
+table tbody tr:nth-child(odd){background-color: #ffffff;}
+input {
+font-style: Helvetica Neue,Roboto,Arial,Droid Sans,sans-serif;
+font-size:18px;
+}
+</style>
+<body>
+<h3 style="font-size:28px;margin-top:18px;margin-bottom:9px;font-weight:bold;font-weight:300;font-style:"Helvetica Neue", Helvetica, Arial, sans-serif;color:black;">PERFORMANCE</h3>
+<br>
+<br>
+<a class="mdl-navigation__link" href="/logout" style="font-size: 24px;">Logout</a>
+<table id="example" style="width:100%;white-space: nowrap;">
+        <thead style="font-family:Helvetica Neue,Roboto,Arial,Droid Sans,sans-serif;font-size:14px;">
+        <tr>
+        <th height="50" nowrap class="sg_name">SG Name<i class="fa fa-fw fa-sort"></i></th>
+        <th nowrap class="subscribed_capacity_gigabytes">Subscribed Capacity (TB)<i class="fa fa-fw fa-sort"></i></th>
+        <th nowrap class="tenant_name">Tenant Name<i class="fa fa-fw fa-sort"></i></th>
+        <th nowrap class="performance_name">Performance Name<i class="fa fa-fw fa-sort"></i></th>
+        <th nowrap class="performance_name">NewCloumn<i class="fa fa-fw fa-sort"></i></th>
+        </tr>
+        </thead>
+        <tbody>
+       
+<tr><td>DR_CDM_OS-EMED_USFPEMESX_DATA-F-SG</td>
+<td>22528.02</td>
+<td>EMEDS</td>
+<td>None</td></tr>
+
+<tr><td>DR_OS-EMED_USFPEMESX_DATA-F-SG</td>
+<td> 10240.01</td>	
+<td>EMEDS</td>	
+<td>None</td></tr>
+
+<tr><td>OS_ARC_NOAADC_PDTBE81_HP-F-SG</td>
+<td>880</td>
+<td>AirGAS</td>
+<td>Standard Performance</td></tr>
+
+
+<tr><td>OS_BNS_USASPBNSESX04_Boot-F-SG</td>
+<td>300</td>
+<td>AirGAS</td>	
+<td>Standard Performance</td></tr>
+
+
+<tr><td>OS_BNS_USASPBNSESX05_Boot-F-SG</td>	
+<td>300</td>	
+<td>AirGAS</td>
+<td>Standard Performance</td></tr>
+
+<tr><td>OS_EPFCO_NOAPDC-APP101_DATA_HP_F_SG	
+<td>150</td>
+<td>AirGAS</td>
+<td>None</td></tr>
+
+
+<tr><td>OS_EPFCO_NOAPDC-APP102_DATA_HP_F_SG
+<td>700</td>
+<td>AirGAS</td>
+<td>Standard Performance</td></tr>
+
+
+<tr><td>OS_PSB_USASPPSBESX01_Boot-F-SG</td>	
+<td>750</td>
+<td>AirGAS</td>
+<td>None</td></tr>
+
+
+<tr><td>OS_PSB_USASPPSBESX0102_CL_Data-HP-F-SG</td>
+<td>300</td>
+<td>AirGAS</td>	
+<td>None</td></tr>
+
+
+<tr><td>OS_PSB_USASPPSBESX02_Boot-F-SG</td>
+<td>300</td>
+<td>AirGAS</td>	
+<td>Standard Performance</td></tr>
+
+
+<tr><td>OS-AGS_ARGNIM2_Boot-F-SG</td>	
+<td>300</td>
+<td>AirGAS</td>	
+<td>Standard Performance</td></tr>
+
+
+<tr><td>OS-AGS_ARGSAPAPP22-Boot-SG</td>	
+<td>300</td>
+<td>AirGAS</td>
+<td>Standard Performance</td></tr>
+
+<tr><td>OS-AGS_ARGSAPPRDPAC-Boot-SG</td>
+<td>3670.01</td>	
+<td>AirGAS</td>
+<td>Ultra Performance</td></tr>
+
+
+<tr><td>OS-AGS_ARGSAPPRDPBI-Data-SG</td>
+<td>23690.04</td>	
+<td>AirGAS</td>	
+<td>Standard Performance</td></tr>
+
+<tr><td>OS-AGS_ARGSAPPRDPDB1-Boot-SG</td>	
+<td>750</td>	
+<td>AirGAS</td>	
+<td>Standard Performance</td></tr>
+
+        </tbody>
+</table>
+</body>
+</head>
+</html>

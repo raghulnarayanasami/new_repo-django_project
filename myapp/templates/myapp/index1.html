@@ -1,0 +1,108 @@
+	<html>
+	<head><title>Log In page</title>
+		<link rel="stylesheet" href="index.css">
+		<style>
+			.bod{
+  background:
+#3e578f
+}
+.tit{
+  position:relative;
+
+}
+img{
+  position:relative;
+  top: 150px;
+    left: 630px;
+    right: 420px;
+    bottom: 191px;
+}
+h1{
+  position:relative;
+  top: 150px;
+    left: 450px;
+    right: 420px;
+    bottom: 191px;
+  color:white
+}
+img{
+    padding: 5px;
+    width: 150px;
+}
+.logBox{
+
+  height:200px;
+  width:250px;
+  position: relative;
+  transition: .5s ease;
+    top: 191px;
+    left: 610px;
+    right: 420px;
+    bottom: 191px;
+
+
+}
+.content{
+  position: relative;
+  transition: .5s;
+    top: 2px;
+    left: 12px;
+    right: 420px;
+    bottom: 190px;
+
+
+}
+input[type=text],input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+p{
+color:red;
+}
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+label,h3{
+  color:white;
+  }
+		</style>
+	</head>
+	<body class="bod">
+
+    <div class="tit">
+    <img src="https://drop.ndtv.com/video/images/vod/medium/2012-01/big_221552_1330940487.jpg" alt="Paris" style="width:150px">
+      <h1>TCS Enterprise Cloud Reporting Portal</h1></div>
+		<div class="logBox">
+
+      <div class="content">
+        <h3 class="title">Log In </h3>
+		<form method="POST">
+			{% csrf_token %}
+			<label class="text" >user Name: </label>
+			<input type="text" name="username" required/></br>
+      <label>password-new:</label>
+      <input type="password" name="password" required/></br>
+			<p>{{error}}</p>
+      <input type="submit" value="Login">
+		</form>
+    </div>
+		</div>
+	</body>
+</html>
+
