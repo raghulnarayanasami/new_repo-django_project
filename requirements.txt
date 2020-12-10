@@ -1,0 +1,4 @@
+Django==2.2.16
+gunicorn==20.0.4
+setuptools==49.3.0
+boto3==0.0.1
