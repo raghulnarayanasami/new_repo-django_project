@@ -7,9 +7,4 @@ RUN pip install -r requirements.txt
 COPY ./demoproject /dir1/
 EXPOSE 8000
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
-root@sol-prod1-prod-bf6rjrim2sga:~# cat requirements.txt
-Django==2.2.16
-gunicorn==20.0.4
-setuptools==49.3.0
-boto3==0.0.1
-root@sol-prod1-prod-bf6rjrim2sga:~#
+
