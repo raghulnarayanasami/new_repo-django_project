@@ -62,9 +62,9 @@ def s3bucket(request):
 
 def boto3connection(bucketname, filename, uploadfile):
 
-    host='http://aos.tcsecp.com'
-    access_key = '753d768107ca4cca8ffcc3f666bad976'
-    secret_key = '7eeacf005ad547798b55f6b531a59947'
+    host='https://radosgw1.tcsecp.com'
+    access_key = 'bc03a2cc024946e7ba0e809683a021f7'
+    secret_key = '2bf4d6d66a844fa6b2e6a6870fed0b5e'
 
     s3=boto3.resource('s3',aws_access_key_id=access_key,aws_secret_access_key=secret_key, endpoint_url=host,)
 
