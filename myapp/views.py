@@ -62,20 +62,25 @@ def s3bucket(request):
 
 def boto3connection(bucketname, filename, uploadfile):
 
-    host='https://radosgw1.tcsecp.com'
-    access_key = 'bc03a2cc024946e7ba0e809683a021f7'
-    secret_key = '2bf4d6d66a844fa6b2e6a6870fed0b5e'
+    host = "https://radosgw1.tcsecp.com"
+    access = "bc03a2cc024946e7ba0e809683a021f7"
+    secret = "2bf4d6d66a844fa6b2e6a6870fed0b5e"
+    cert_path = "/root/tcs_ecp_cert/cacert.pem"
 
-    s3=boto3.resource('s3',aws_access_key_id=access_key,aws_secret_access_key=secret_key, endpoint_url=host,)
+    s3 = boto3.resource('s3',endpoint_url=host, verify=cert_path,aws_access_key_id=access,
+                aws_secret_access_key=secret)
 
     s3.create_bucket(Bucket=bucketname)
     s3.Object(bucketname,filename).upload_file(Filename=uploadfile)
 
 def bucketlist():
-    host='https://radosgw1.tcsecp.com'
-    access_key = 'bc03a2cc024946e7ba0e809683a021f7'
-    secret_key = '2bf4d6d66a844fa6b2e6a6870fed0b5e'
+    host = "https://radosgw1.tcsecp.com"
+    access = "bc03a2cc024946e7ba0e809683a021f7"
+    secret = "2bf4d6d66a844fa6b2e6a6870fed0b5e"
+    
+    cert_path = "/root/tcs_ecp_cert/cacert.pem"
 
-    s3=boto3.resource('s3',aws_access_key_id=access_key,aws_secret_access_key=secret_key, endpoint_url=host,)
+    s3 = boto3.resource('s3',endpoint_url=host, verify=cert_path,aws_access_key_id=access,
+                aws_secret_access_key=secret)
     bucket_list = s3.buckets.all()
     return bucket_list
